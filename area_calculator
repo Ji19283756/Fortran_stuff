@@ -1,0 +1,44 @@
+program test_area_calc
+    implicit none
+    real(16) :: rect_area, triangle_area, circle_area
+    real(16) :: dimension_x, dimension_y, radius
+    dimension_x = 10.0
+    dimension_y = 10.0
+    radius = 10.0
+    
+    print *, rect_area(dimension_x, dimension_y)
+    print *, triangle_area(dimension_x, dimension_y)
+    print *, circle_area(radius)
+    
+end program test_area_calc
+
+
+function rect_area(l, w) result (area)
+    implicit none
+    real(16), intent(in) :: l, w
+    real(16) :: area
+    
+    area = l * w
+    
+end function rect_area
+
+
+function circle_area(r) result (area)
+    implicit none
+    real(16), intent(in) :: r
+    real(16) :: area
+    real(16),parameter :: pi = 4.0 * atan(1.0)
+
+    area = (r**2) * pi
+    
+end function circle_area
+
+
+function triangle_area(l, w) result (area)
+    implicit none
+    real(16), intent(in) :: l, w
+    real(16) :: area
+    
+    area = 0.5 * l * w
+    
+end function triangle_area
